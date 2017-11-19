@@ -3,14 +3,14 @@
 import simplejson as json
 
 
-class AttributeNotFoundException(Exception):
+class AttrNotFoundException(Exception):
 
     """
     Exception raised when an attribute isn't found in the json data
     """
 
     def __init__(self, message):
-        super(AttributeNotFoundException, self).__init__(message)
+        super(AttrNotFoundException, self).__init__(message)
 
 
 class HumanDict(object):
@@ -24,7 +24,7 @@ class HumanDict(object):
 
     def __getattr__(self, attr):
         if attr not in self._json:
-            raise AttributeNotFoundException("{0} doesn't exist".format(attr))
+            raise AttrNotFoundException("{0} doesn't exist".format(attr))
 
         obj = self._json[attr]
         if isinstance(obj, dict) or isinstance(obj, list):
