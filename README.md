@@ -1,1 +1,2 @@
-# pystruct
+# jsonclass
+
